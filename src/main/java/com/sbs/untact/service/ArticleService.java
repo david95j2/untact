@@ -38,20 +38,34 @@ public class ArticleService {
 	}
 
 	// 게시물 리스트 다불러오기
-	public List<Article> getArticles(String searchKeyword) {
+	public List<Article> getArticles(String searchKeywordType, String searchKeyword) {
 		if (searchKeyword == null) {
 			return articles;
 		}
 		
-		List<Article> filterdList = new ArrayList<>();
+		List<Article> filteredList = new ArrayList<>();
 		
 		for (Article article : articles) {
-			if (article.getTitle().contains(searchKeyword)) {
-				filterdList.add(article);
+			boolean contains = false;
+
+			if (searchKeywordType.equals("title")) {
+				contains = article.getTitle().contains(searchKeyword);
+			} else if (searchKeywordType.equals("body")) {
+				contains = article.getBody().contains(searchKeyword);
+			} else {
+				contains = article.getTitle().contains(searchKeyword);
+
+				if (contains == false) {
+					contains = article.getBody().contains(searchKeyword);
+				}
+			}
+
+			if (contains) {
+				filteredList.add(article);
 			}
 		}
 		
-		return filterdList;
+		return filteredList;
 	}
 
 	// 게시물 추가하기

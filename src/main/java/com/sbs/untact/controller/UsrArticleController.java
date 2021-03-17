@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sbs.untact.dto.Article;
@@ -27,7 +28,9 @@ public class UsrArticleController {
 
 	@RequestMapping("/usr/article/list")
 	@ResponseBody
-	public List<Article> showList(String searchKeyword) {
+	public List<Article> showList(@RequestParam(defaultValue = "titleAndBody") String searchKeywordType,
+			String searchKeyword) {
+		
 		if (searchKeyword != null && searchKeyword.length()==0) {
 			searchKeyword = null;
 		}
