@@ -39,7 +39,7 @@ public class UsrArticleController {
 			searchKeyword = searchKeyword.trim();
 		}
 		
-		return articleService.getArticles(searchKeyword);
+		return articleService.getArticles(searchKeywordType,searchKeyword);
 	}
 
 	@RequestMapping("/usr/article/doAdd")
