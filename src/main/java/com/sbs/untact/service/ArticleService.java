@@ -38,8 +38,20 @@ public class ArticleService {
 	}
 
 	// 게시물 리스트 다불러오기
-	public List<Article> getArticles() {
-		return articles;
+	public List<Article> getArticles(String searchKeyword) {
+		if (searchKeyword == null) {
+			return articles;
+		}
+		
+		List<Article> filterdList = new ArrayList<>();
+		
+		for (Article article : articles) {
+			if (article.getTitle().contains(searchKeyword)) {
+				filterdList.add(article);
+			}
+		}
+		
+		return filterdList;
 	}
 
 	// 게시물 추가하기
