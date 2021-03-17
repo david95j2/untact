@@ -30,16 +30,16 @@ public class UsrArticleController {
 	@ResponseBody
 	public List<Article> showList(@RequestParam(defaultValue = "titleAndBody") String searchKeywordType,
 			String searchKeyword) {
-		
-		if (searchKeyword != null && searchKeyword.length()==0) {
+
+		if (searchKeyword != null && searchKeyword.length() == 0) {
 			searchKeyword = null;
 		}
-		
+
 		if (searchKeyword != null) {
 			searchKeyword = searchKeyword.trim();
 		}
-		
-		return articleService.getArticles(searchKeywordType,searchKeyword);
+
+		return articleService.getArticles(searchKeywordType, searchKeyword);
 	}
 
 	@RequestMapping("/usr/article/doAdd")
@@ -53,7 +53,7 @@ public class UsrArticleController {
 			return new ResultData("F-1", "내용을 입력하세요");
 		}
 
-		return articleService.add(title, body);
+		return articleService.addArticle(title, body);
 	}
 
 	@RequestMapping("/usr/article/doDelete")
@@ -62,7 +62,7 @@ public class UsrArticleController {
 		if (id == null) {
 			return new ResultData("F-1", "Id를 입력해주세요.");
 		}
-		
+
 		Article article = articleService.getArticle(id);
 
 		if (article == null) {
@@ -84,13 +84,13 @@ public class UsrArticleController {
 		if (body == null) {
 			return new ResultData("F-1", "내용을 입력해주세요.");
 		}
-		
+
 		Article article = articleService.getArticle(id);
 
 		if (article == null) {
 			return new ResultData("F-1", "해당 게시물은 존재하지 않습니다.");
 		}
 
-		return articleService.modify(id,title,body);
+		return articleService.modifyArticle(id, title, body);
 	}
 }
