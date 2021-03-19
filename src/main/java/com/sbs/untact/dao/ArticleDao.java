@@ -1,96 +1,23 @@
 package com.sbs.untact.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.sbs.untact.dto.Article;
-import com.sbs.untact.util.Util;
 
-@Component
-public class ArticleDao {
-	private int articlesLastId;
-	private List<Article> articles;
+@Mapper
+public interface ArticleDao {
 
-	public ArticleDao() {
-		// 멤버변수 초기화
-		articlesLastId = 0;
-		articles = new ArrayList<>();
+	public Article getArticle(@Param(value = "id") int id);
 
-		// 게시물 2개 생성
-		articles.add(new Article(++articlesLastId, "2020-12-12 12:12:12", "2020-12-12 12:12:12", "제목1", "내용1"));
-		articles.add(new Article(++articlesLastId, "2020-12-12 12:12:12", "2020-12-12 12:12:12", "제목2", "내용2"));
-	}
+	public void addArticle(@Param(value = "title") String title,@Param(value = "body") String body);
 
-	public Article getArticle(int id) {
-		for (Article article : articles) {
-			if (article.getId() == id) {
-				return article;
-			}
-		}
+	public void deleteArticle(@Param(value = "id") int id);
 
-		return null;
-	}
+	public void modifyArticle(@Param(value = "id") int id,@Param(value = "title") String title,@Param(value = "body") String body);
 
-	// 게시물 리스트 다불러오기
-	public List<Article> getArticles(String searchKeywordType, String searchKeyword) {
-		if (searchKeyword == null) {
-			return articles;
-		}
+	public List<Article> getArticles(@Param(value = "searchKeywordType") String searchKeywordType,@Param(value = "searchKeyword") String searchKeyword);
 
-		List<Article> filteredList = new ArrayList<>();
-
-		for (Article article : articles) {
-			boolean contains = false;
-
-			if (searchKeywordType.equals("title")) {
-				contains = article.getTitle().contains(searchKeyword);
-			} else if (searchKeywordType.equals("body")) {
-				contains = article.getBody().contains(searchKeyword);
-			} else {
-				contains = article.getTitle().contains(searchKeyword);
-
-				if (contains == false) {
-					contains = article.getBody().contains(searchKeyword);
-				}
-			}
-
-			if (contains) {
-				filteredList.add(article);
-			}
-		}
-
-		return filteredList;
-	}
-
-	public int addArticle(String title, String body) {
-		int id = ++articlesLastId;
-
-		// 현재 날짜 받기
-		String regDate = Util.getNowDateStr();
-		String updateDate = regDate;
-
-		articles.add(new Article(id, regDate, updateDate, title, body));
-
-		return id;
-	}
-
-	public Boolean deleteArticle(int id) {
-		for (Article article : articles) {
-			if (article.getId() == id) {
-				articles.remove(article);
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public void modifyArticle(int id, String title, String body) {
-		Article article = getArticle(id);
-
-		article.setTitle(title);
-		article.setBody(body);
-		article.setUpdateDate(Util.getNowDateStr());
-	}
 }

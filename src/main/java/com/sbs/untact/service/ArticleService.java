@@ -22,20 +22,19 @@ public class ArticleService {
 
 	// 게시물 추가하기
 	public ResultData addArticle(String title, String body) {
-		int id = articleDao.addArticle(title, body);
+		articleDao.addArticle(title, body);
+		
+		//임시
+		int id = 1; 
 		
 		return new ResultData("S-1", "해당 게시물이 등록되었습니다.", "id", id);
 	}
 
 	// 게시물 삭제하기
 	public ResultData deleteArticle(int id) {
-		Boolean rs = articleDao.deleteArticle(id);
+		articleDao.deleteArticle(id);
 		
-		if (rs == false) {
-			return new ResultData("S-1", "해당 게시물이 삭제되었습니다.");
-		}
-		
-		return new ResultData("S-1", "해당 게시물이 삭제되었습니다.");
+		return new ResultData("S-1", "해당 게시물이 삭제되었습니다.","id",id);
 	}
 
 	// 게시물 수정
