@@ -1,6 +1,7 @@
 package com.sbs.untact.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,16 +45,16 @@ public class UsrArticleController {
 
 	@RequestMapping("/usr/article/doAdd")
 	@ResponseBody
-	public ResultData doAdd(String title, String body) {
-		if (title == null) {
+	public ResultData doAdd(@RequestParam Map<String, Object> param) {
+		if (param.get("title") == null) {
 			return new ResultData("F-1", "제목을 입력하세요");
 		}
 
-		if (body == null) {
+		if (param.get("body") == null) {
 			return new ResultData("F-1", "내용을 입력하세요");
 		}
 
-		return articleService.addArticle(title, body);
+		return articleService.addArticle(param);
 	}
 
 	@RequestMapping("/usr/article/doDelete")
