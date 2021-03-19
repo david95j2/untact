@@ -75,6 +75,13 @@ ALTER TABLE article ADD COLUMN memberId INT(10) UNSIGNED NOT NULL AFTER updateDa
 # 기존 게시물의 작성자를 회원1로 지정
 UPDATE article
 SET memberId = 1
-WHERE memberId = 0
+WHERE memberId = 0;
 
-SELECT * FROM article
+/*
+insert into article
+(regDate, updateDate, memberId, title, `body`)
+SELECT NOW(), NOW(), FLOOR(RAND() * 2) + 1, CONCAT('제목_', FLOOR(RAND() * 1000) + 1), CONCAT('내용_', FLOOR(RAND() * 1000) + 1)
+from article;
+*/
+
+SELECT COUNT(*) FROM article;
