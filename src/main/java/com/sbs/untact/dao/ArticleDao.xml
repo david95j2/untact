@@ -48,8 +48,7 @@
 	<select id="getForPrintArticles" resultType="Article">
 		SELECT a.*,
 		IFNULL(m.nickname, "탈퇴한회원") AS extra__writer
-		FROM article AS
-		a
+		FROM article AS a
 		LEFT JOIN `member` AS m
 		ON a.memberId = m.id
 		WHERE 1
@@ -76,8 +75,7 @@
 		INSERT INTO article
 		SET regDate = NOW(),
 		updateDate = NOW(),
-		title =
-		#{title},
+		title = #{title},
 		`body` = #{body},
 		memberId = #{memberId}
 	</insert>
@@ -102,14 +100,4 @@
 		</set>
 		WHERE id = #{id}
 	</update>
-
-	<insert id="addReply" useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO reply
-		SET regDate = NOW(),
-		updateDate = NOW(),
-		articleId = #{articleId},
-		`body` = #{body},
-		memberId = #{memberId}
-	</insert>
-
 </mapper>

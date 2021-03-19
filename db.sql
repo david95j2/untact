@@ -139,6 +139,24 @@ articleId = 2,
 memberId = 2,
 `body` = "댓글 내용3 입니다.";
 
+# 게시물 전용 댓글에서 범용 댓글로 바꾸기 위해 relTypeCode 추가
+ALTER TABLE reply ADD COLUMN `relTypeCode` CHAR(20) NOT NULL AFTER updateDate;
+
+# 현재는 게시물 댓글 밖에 없기 때문에 모든 행의 relTypeCode 값을 article 로 지정
+UPDATE reply
+SET relTypeCode = 'article'
+WHERE relTypeCode = '';
+
+# articleId 칼럼명을 relId로 수정
+ALTER TABLE reply CHANGE `articleId` `relId` INT(10) UNSIGNED NOT NULL;
+
+# 고속 검색을 위해서 인덱스 걸기 (순서걸기)
+ALTER TABLE reply ADD KEY (relTypeCode, relId); 
+# SELECT * FROM reply WHERE relTypeCode = 'article' AND relId = 5; # O
+# SELECT * FROM reply WHERE relTypeCode = 'article'; # O
+# SELECT * FROM reply WHERE relId = 5 AND relTypeCode = 'article'; # X
+
+
 /*
 insert into article
 (regDate, updateDate, boardId, memberId, title, `body`)
@@ -150,6 +168,8 @@ from article;
 
 SELECT COUNT(*) FROM article;
 
-SELECT * FROM article
+SELECT * FROM article;
 
-SELECT * FROM reply
+SELECT * FROM reply;
+
+DESC reply

@@ -91,13 +91,4 @@ public class ArticleService {
 		return articleDao.getBoard(id);
 	}
 
-	// 댓글 작성
-	public ResultData addReply(Map<String, Object> param) {
-		articleDao.addReply(param);
-
-		// 추가된 게시물 id 받기
-		int id = Util.getAsInt(param.get("id"), 0);
-
-		return new ResultData("S-1", "해당 게시물이 등록되었습니다.", "id", id);
-	}
 }
