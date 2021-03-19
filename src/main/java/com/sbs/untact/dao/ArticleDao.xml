@@ -52,6 +52,9 @@
 			AND (a.title LIKE CONCAT('%',#{searchKeyword},'%') OR a.`body` LIKE CONCAT('%',#{searchKeyword},'%'))
 		</if>
 		ORDER BY a.id DESC
+		<if test="limitStart != null and limitTake != null">
+			LIMIT #{limitStart}, #{limitTake}
+		</if>
 	</select>
 	
 	<insert id="addArticle" useGeneratedKeys="true" keyProperty="id">
