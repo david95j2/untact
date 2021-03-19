@@ -31,4 +31,6 @@ public interface ArticleDao {
 			@Param(value = "limitTake") int limitTake);
 
 	public Board getBoard(@Param(value="id") int id);
+
+	public void addReply(Map<String, Object> param);
 }
