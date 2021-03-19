@@ -37,7 +37,7 @@ public class UsrArticleController {
 		if (searchKeyword == null) {
 			searchKeyword = "";
 		}
-		
+
 		if (searchKeyword != null && searchKeyword.length() == 0) {
 			searchKeyword = "";
 		}
@@ -51,13 +51,13 @@ public class UsrArticleController {
 
 	@RequestMapping("/usr/article/doAdd")
 	@ResponseBody
-	public ResultData doAdd(@RequestParam Map<String, Object> param,HttpSession session) {
+	public ResultData doAdd(@RequestParam Map<String, Object> param, HttpSession session) {
 		int loginedMemberId = Util.getAsInt(session.getAttribute("loginedMemberId"), 0);
-		
+
 		if (loginedMemberId == 0) {
 			return new ResultData("F-2", "로그인 후 이용해주세요.");
 		}
-		
+
 		if (param.get("title") == null) {
 			return new ResultData("F-1", "제목을 입력하세요");
 		}
@@ -65,21 +65,33 @@ public class UsrArticleController {
 		if (param.get("body") == null) {
 			return new ResultData("F-1", "내용을 입력하세요");
 		}
-		
+
 		param.put("memberId", loginedMemberId);
-		
+
 		return articleService.addArticle(param);
 	}
 
 	@RequestMapping("/usr/article/doDelete")
 	@ResponseBody
-	public ResultData doDelete(Integer id) {
+	public ResultData doDelete(Integer id,HttpSession session) {
+		int loginedMemberId = Util.getAsInt(session.getAttribute("loginedMemberId"), 0);
+
+		if (loginedMemberId == 0) {
+			return new ResultData("F-2", "로그인 후 이용해주세요.");
+		}
+
 		if (id == null) {
 			return new ResultData("F-1", "Id를 입력해주세요.");
 		}
-
+				
 		Article article = articleService.getArticle(id);
 
+		ResultData actorCanModifyRd = articleService.getActorCanDeleteRd(article, loginedMemberId);
+
+		if (actorCanModifyRd.isFail()) {
+			return actorCanModifyRd;
+		}
+		
 		if (article == null) {
 			return new ResultData("F-1", "해당 게시물은 존재하지 않습니다.");
 		}
@@ -89,7 +101,13 @@ public class UsrArticleController {
 
 	@RequestMapping("/usr/article/doModify")
 	@ResponseBody
-	public ResultData doModify(Integer id, String title, String body) {
+	public ResultData doModify(Integer id, String title, String body, HttpSession session) {
+		int loginedMemberId = Util.getAsInt(session.getAttribute("loginedMemberId"), 0);
+
+		if (loginedMemberId == 0) {
+			return new ResultData("F-2", "로그인 후 이용해주세요.");
+		}
+
 		if (id == null) {
 			return new ResultData("F-1", "Id를 입력해주세요.");
 		}
@@ -104,6 +122,12 @@ public class UsrArticleController {
 
 		if (article == null) {
 			return new ResultData("F-1", "해당 게시물은 존재하지 않습니다.");
+		}
+
+		ResultData actorCanModifyRd = articleService.getActorCanModifyRd(article, loginedMemberId);
+
+		if (actorCanModifyRd.isFail()) {
+			return actorCanModifyRd;
 		}
 
 		return articleService.modifyArticle(id, title, body);

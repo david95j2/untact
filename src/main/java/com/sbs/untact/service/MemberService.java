@@ -41,4 +41,9 @@ public class MemberService {
 		
 		return new ResultData("S-1", "수정되었습니다.");
 	}
+	
+	// 관리자인 회원 찾기 1번 회원을 관리자로 지정
+	public Boolean isAdmin(int actorId) {
+		return actorId == 1;
+	}
 }
