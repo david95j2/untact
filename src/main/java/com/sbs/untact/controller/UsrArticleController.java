@@ -31,9 +31,12 @@ public class UsrArticleController {
 	@ResponseBody
 	public List<Article> showList(@RequestParam(defaultValue = "titleAndBody") String searchKeywordType,
 			String searchKeyword) {
-
+		if (searchKeyword == null) {
+			searchKeyword = "";
+		}
+		
 		if (searchKeyword != null && searchKeyword.length() == 0) {
-			searchKeyword = null;
+			searchKeyword = "";
 		}
 
 		if (searchKeyword != null) {
