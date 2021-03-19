@@ -70,4 +70,9 @@ public class ArticleService {
 	public ResultData getActorCanDeleteRd(Article article, int actorId) {
 		return getActorCanModifyRd(article, actorId);
 	}
+	
+	// detail 시 member의 닉네임 추가로 불러오기
+	public Article getForPrintArticle(int id) {
+		return articleDao.getForPrintArticle(id);
+	}
 }

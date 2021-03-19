@@ -47,16 +47,27 @@ CREATE TABLE `member` (
 # 로그인 ID로 검색했을 때
 ALTER TABLE `member` ADD UNIQUE INDEX (`loginId`);
 
-# 회원, 테스트 데이터 생성
+# 회원, 테스트 데이터 생성 user1
 INSERT INTO `member`
 SET regDate = NOW(),
 updateDate = NOW(),
 loginId = "user1",
 loginPw = "user1",
-`name` = "user1",
-nickname = "user1",
+`name` = "관리자",
+nickname = "관리자",
 cellphoneNo = "01012341234",
 email = "test@gmail.com";
+
+# 회원, 테스트 데이터 생성 user2
+INSERT INTO `member`
+SET regDate = NOW(),
+updateDate = NOW(),
+loginId = "user2",
+loginPw = "user2",
+`name` = "민병관",
+nickname = "웃지마민병관",
+cellphoneNo = "01098765432",
+email = "test2@gmail.com";
 
 # 게시물 테이블에 회원번호 칼럼 추가
 ALTER TABLE article ADD COLUMN memberId INT(10) UNSIGNED NOT NULL AFTER updateDate;
@@ -66,3 +77,4 @@ UPDATE article
 SET memberId = 1
 WHERE memberId = 0
 
+SELECT * FROM article

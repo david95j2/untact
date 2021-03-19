@@ -16,4 +16,5 @@ public class Article {
 	private String title;
 	private String body;
 	
+	private String extra__writer;
 }

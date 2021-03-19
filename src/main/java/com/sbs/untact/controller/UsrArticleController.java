@@ -24,10 +24,19 @@ public class UsrArticleController {
 
 	@RequestMapping("/usr/article/detail")
 	@ResponseBody
-	public Article showDetail(int id) {
-		Article article = articleService.getArticle(id);
+	public ResultData showDetail(Integer id) {
+		if (id == null) {
+			return new ResultData("F-1", "Id를 입력해주세요.");
+		}
+		
+		Article article = articleService.getForPrintArticle(id);
+		
+		if (article == null) {
+			return new ResultData("F-2", "존재하지 않는 게시물 번호 입니다.");
+		}
+		
+		return new ResultData("S-1", "불러오기 완료","article",article);
 
-		return article;
 	}
 
 	@RequestMapping("/usr/article/list")
