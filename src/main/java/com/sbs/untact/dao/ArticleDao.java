@@ -17,10 +17,15 @@ public interface ArticleDao {
 
 	public void deleteArticle(@Param(value = "id") int id);
 
-	public void modifyArticle(@Param(value = "id") int id,@Param(value = "title") String title,@Param(value = "body") String body);
+	public void modifyArticle(@Param(value = "id") int id,@Param(value = "title") String title,
+			@Param(value = "body") String body);
 
-	public List<Article> getArticles(@Param(value = "searchKeywordType") String searchKeywordType,@Param(value = "searchKeyword") String searchKeyword);
+	public List<Article> getArticles(@Param(value = "searchKeywordType") String searchKeywordType,
+			@Param(value = "searchKeyword") String searchKeyword);
 
 	public Article getForPrintArticle(@Param(value = "id") int id);
+
+	public List<Article> getForPrintArticles(@Param(value = "searchKeywordType") String searchKeywordType,
+			@Param(value = "searchKeyword") String searchKeyword);
 
 }

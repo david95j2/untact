@@ -35,6 +35,25 @@
 		ORDER BY id DESC
 	</select>
 	
+	<select id="getForPrintArticles" resultType="Article">
+		SELECT a.*,
+		IFNULL(m.nickname, "탈퇴한회원") AS extra__writer
+		FROM article AS a
+		LEFT JOIN `member` AS m
+		ON a.memberId = m.id
+		WHERE 1
+		<if test="searchKeywordType == 'title'">
+			AND a.title LIKE CONCAT('%',#{searchKeyword},'%')
+		</if>
+		<if test="searchKeywordType == 'body'">
+			AND a.`body` LIKE CONCAT('%',#{searchKeyword},'%')
+		</if>
+		<if test="searchKeywordType == 'titleAndBody'">
+			AND (a.title LIKE CONCAT('%',#{searchKeyword},'%') OR a.`body` LIKE CONCAT('%',#{searchKeyword},'%'))
+		</if>
+		ORDER BY a.id DESC
+	</select>
+	
 	<insert id="addArticle" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO article
 		SET regDate = NOW(),

@@ -75,4 +75,9 @@ public class ArticleService {
 	public Article getForPrintArticle(int id) {
 		return articleDao.getForPrintArticle(id);
 	}
+	
+	// list 시 member의 닉네임 추가로 불러오기
+	public List<Article> getForPrintArticles(String searchKeywordType, String searchKeyword) {
+		return articleDao.getForPrintArticles(searchKeywordType, searchKeyword);
+	}
 }

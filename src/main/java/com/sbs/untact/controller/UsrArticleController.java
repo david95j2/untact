@@ -41,7 +41,7 @@ public class UsrArticleController {
 
 	@RequestMapping("/usr/article/list")
 	@ResponseBody
-	public List<Article> showList(@RequestParam(defaultValue = "titleAndBody") String searchKeywordType,
+	public ResultData showList(@RequestParam(defaultValue = "titleAndBody") String searchKeywordType,
 			String searchKeyword) {
 		if (searchKeyword == null) {
 			searchKeyword = "";
@@ -55,7 +55,9 @@ public class UsrArticleController {
 			searchKeyword = searchKeyword.trim();
 		}
 
-		return articleService.getArticles(searchKeywordType, searchKeyword);
+		List<Article> articles = articleService.getForPrintArticles(searchKeywordType, searchKeyword);
+		
+		return new ResultData("S-1", "성공", "articles",articles);
 	}
 
 	@RequestMapping("/usr/article/doAdd")
