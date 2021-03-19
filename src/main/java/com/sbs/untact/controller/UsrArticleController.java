@@ -41,7 +41,7 @@ public class UsrArticleController {
 
 	@RequestMapping("/usr/article/list")
 	@ResponseBody
-	public ResultData showList(@RequestParam(defaultValue = "titleAndBody") String searchKeywordType,
+	public ResultData showList(@RequestParam(defaultValue = "1") int boardId, String searchKeywordType,
 			String searchKeyword,@RequestParam(defaultValue = "1") int page) {
 		if (searchKeyword == null) {
 			searchKeyword = "";
@@ -58,7 +58,7 @@ public class UsrArticleController {
 		// 한 페이지 내 게시물 갯수 설정변수
 		int itemsInAPage = 20;
 		
-		List<Article> articles = articleService.getForPrintArticles(searchKeywordType, searchKeyword,page,itemsInAPage);
+		List<Article> articles = articleService.getForPrintArticles(boardId,searchKeywordType, searchKeyword,page,itemsInAPage);
 		
 		return new ResultData("S-1", "성공", "articles",articles);
 	}

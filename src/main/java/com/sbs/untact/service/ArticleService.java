@@ -77,11 +77,11 @@ public class ArticleService {
 	}
 	
 	// list 시 member의 닉네임 추가로 불러오기
-	public List<Article> getForPrintArticles(String searchKeywordType, String searchKeyword,
+	public List<Article> getForPrintArticles(int boardId, String searchKeywordType, String searchKeyword,
 			int page, int itemsInAPage) {
 		
 		int limitStart = (page -1) * itemsInAPage;
 		int limitTake = itemsInAPage;
-		return articleDao.getForPrintArticles(searchKeywordType, searchKeyword,limitStart,limitTake);
+		return articleDao.getForPrintArticles(boardId,searchKeywordType, searchKeyword,limitStart,limitTake);
 	}
 }
