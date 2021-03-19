@@ -9213,3 +9213,450 @@ Action:
 
 Identify and stop the process that's listening on port 8024 or configure this application to listen on another port.
 
+2021-03-19 18:30:07 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2021-03-19 18:30:07 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@936d328] was not registered for synchronization because synchronization is not active
+2021-03-19 18:30:07 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2021-03-19 18:30:07 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@782240859 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1e4c8c89] will not be managed by Spring
+2021-03-19 18:30:07 [DEBUG] c.s.untact.dao.ArticleDao.getArticle - ==>  Preparing: SElECT * FROM article WHERE id = ?
+2021-03-19 18:30:07 [DEBUG] c.s.untact.dao.ArticleDao.getArticle - ==> Parameters: 1(Integer)
+2021-03-19 18:30:07 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SElECT *
+		FROM article
+		WHERE id = 1
+ {executed in 5 msec}
+2021-03-19 18:30:07 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|------|-----|
+|id |regdate             |updatedate          |title |body |
+|---|--------------------|--------------------|------|-----|
+|1  |2021-03-19 17:02:40 |2021-03-19 17:49:31 |제목    |내용   |
+|---|--------------------|--------------------|------|-----|
+
+2021-03-19 18:30:07 [DEBUG] c.s.untact.dao.ArticleDao.getArticle - <==      Total: 1
+2021-03-19 18:30:07 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@936d328]
+2021-03-19 18:30:07 [DEBUG] o.s.b.d.livereload.LiveReloadServer - LiveReload connection closed
+2021-03-19 18:30:07 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload.js?ext=Chrome&extver=2.1.0 HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Accept: */*
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://localhost:8024/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7]
+2021-03-19 18:30:07 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Upgrade: websocket
+Origin: http://localhost:8024
+Sec-WebSocket-Version: 13
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Sec-WebSocket-Key: ZzQ+o7TRzB60MakLq0G9EQ==
+Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits]
+2021-03-19 18:30:07 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8","ext":"Chrome","extver":"2.1.0"}
+2021-03-19 18:30:07 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"info","plugins":{"less":{"disable":false,"version":"1.0"}},"url":"http://localhost:8024/usr/article/detail?id=1"}
+2021-03-19 18:30:09 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2021-03-19 18:30:09 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50179c20] was not registered for synchronization because synchronization is not active
+2021-03-19 18:30:09 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2021-03-19 18:30:09 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1590716498 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1e4c8c89] will not be managed by Spring
+2021-03-19 18:30:09 [DEBUG] c.s.untact.dao.ArticleDao.getArticle - ==>  Preparing: SElECT * FROM article WHERE id = ?
+2021-03-19 18:30:09 [DEBUG] c.s.untact.dao.ArticleDao.getArticle - ==> Parameters: 2(Integer)
+2021-03-19 18:30:09 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SElECT *
+		FROM article
+		WHERE id = 2
+ {executed in 1 msec}
+2021-03-19 18:30:09 [INFO ] jdbc.resultsettable - 
+|---|--------------------|--------------------|-------|-------|
+|id |regdate             |updatedate          |title  |body   |
+|---|--------------------|--------------------|-------|-------|
+|2  |2021-03-19 17:02:40 |2021-03-19 17:16:01 |새로운 제목 |새로운 내용 |
+|---|--------------------|--------------------|-------|-------|
+
+2021-03-19 18:30:09 [DEBUG] c.s.untact.dao.ArticleDao.getArticle - <==      Total: 1
+2021-03-19 18:30:09 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50179c20]
+2021-03-19 18:30:09 [DEBUG] o.s.b.d.livereload.LiveReloadServer - LiveReload connection closed
+2021-03-19 18:30:09 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload.js?ext=Chrome&extver=2.1.0 HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Accept: */*
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://localhost:8024/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7]
+2021-03-19 18:30:09 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Upgrade: websocket
+Origin: http://localhost:8024
+Sec-WebSocket-Version: 13
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Sec-WebSocket-Key: e77R2y4Dw5hl2SABFkpV4Q==
+Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits]
+2021-03-19 18:30:09 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8","ext":"Chrome","extver":"2.1.0"}
+2021-03-19 18:30:09 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"info","plugins":{"less":{"disable":false,"version":"1.0"}},"url":"http://localhost:8024/usr/article/detail?id=2"}
+2021-03-19 18:30:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:30:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:30:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:30:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:31:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:31:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:31:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:31:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:32:02 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2021-03-19 18:32:02 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6570ebd7] was not registered for synchronization because synchronization is not active
+2021-03-19 18:32:02 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2021-03-19 18:32:02 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1807157513 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1e4c8c89] will not be managed by Spring
+2021-03-19 18:32:02 [DEBUG] c.s.u.dao.ArticleDao.getArticles - ==>  Preparing: SELECT * FROM article WHERE 1 AND (title LIKE CONCAT('%',?,'%') OR `body` LIKE CONCAT('%',?,'%')) ORDER BY id DESC
+2021-03-19 18:32:02 [DEBUG] c.s.u.dao.ArticleDao.getArticles - ==> Parameters: null, null
+2021-03-19 18:32:02 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT *
+		FROM article
+		WHERE 1
+
+			AND (title LIKE CONCAT('%',NULL,'%') OR `body` LIKE CONCAT('%',NULL,'%'))
+
+		ORDER BY id DESC
+ {executed in 1 msec}
+2021-03-19 18:32:02 [INFO ] jdbc.resultsettable - 
+|---|--------|-----------|------|-----|
+|id |regdate |updatedate |title |body |
+|---|--------|-----------|------|-----|
+|---|--------|-----------|------|-----|
+
+2021-03-19 18:32:02 [DEBUG] c.s.u.dao.ArticleDao.getArticles - <==      Total: 0
+2021-03-19 18:32:02 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6570ebd7]
+2021-03-19 18:32:02 [DEBUG] o.s.b.d.livereload.LiveReloadServer - LiveReload connection closed
+2021-03-19 18:32:02 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload.js?ext=Chrome&extver=2.1.0 HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Accept: */*
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://localhost:8024/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7]
+2021-03-19 18:32:02 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Upgrade: websocket
+Origin: http://localhost:8024
+Sec-WebSocket-Version: 13
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Sec-WebSocket-Key: ara8KJmtsGH98RYH+RB2hg==
+Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits]
+2021-03-19 18:32:02 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8","ext":"Chrome","extver":"2.1.0"}
+2021-03-19 18:32:02 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"info","plugins":{"less":{"disable":false,"version":"1.0"}},"url":"http://localhost:8024/usr/article/list"}
+2021-03-19 18:32:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:32:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:32:50 [DEBUG] o.s.boot.devtools.restart.Restarter - Finalized classloader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@59b8bd9f
+2021-03-19 18:32:50 [DEBUG] o.s.boot.devtools.restart.Restarter - Finalized classloader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@5398c235
+2021-03-19 18:32:50 [DEBUG] o.s.boot.devtools.restart.Restarter - Finalized classloader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@255aae1
+2021-03-19 18:32:50 [DEBUG] o.s.boot.devtools.restart.Restarter - Finalized classloader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@64a935c2
+2021-03-19 18:32:50 [DEBUG] o.s.boot.devtools.restart.Restarter - Finalized classloader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@7e5654b9
+2021-03-19 18:32:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:32:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:33:19 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2021-03-19 18:33:19 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a926b03] was not registered for synchronization because synchronization is not active
+2021-03-19 18:33:19 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2021-03-19 18:33:19 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@609583137 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1e4c8c89] will not be managed by Spring
+2021-03-19 18:33:19 [DEBUG] c.s.u.dao.ArticleDao.getArticles - ==>  Preparing: SELECT * FROM article WHERE 1 AND (title LIKE CONCAT('%',?,'%') OR `body` LIKE CONCAT('%',?,'%')) ORDER BY id DESC
+2021-03-19 18:33:19 [DEBUG] c.s.u.dao.ArticleDao.getArticles - ==> Parameters: 2(String), 2(String)
+2021-03-19 18:33:19 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT *
+		FROM article
+		WHERE 1
+
+			AND (title LIKE CONCAT('%','2','%') OR `body` LIKE CONCAT('%','2','%'))
+
+		ORDER BY id DESC
+ {executed in 1 msec}
+2021-03-19 18:33:19 [INFO ] jdbc.resultsettable - 
+|---|--------|-----------|------|-----|
+|id |regdate |updatedate |title |body |
+|---|--------|-----------|------|-----|
+|---|--------|-----------|------|-----|
+
+2021-03-19 18:33:19 [DEBUG] c.s.u.dao.ArticleDao.getArticles - <==      Total: 0
+2021-03-19 18:33:19 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a926b03]
+2021-03-19 18:33:19 [DEBUG] o.s.b.d.livereload.LiveReloadServer - LiveReload connection closed
+2021-03-19 18:33:19 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload.js?ext=Chrome&extver=2.1.0 HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Accept: */*
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://localhost:8024/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7]
+2021-03-19 18:33:19 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Upgrade: websocket
+Origin: http://localhost:8024
+Sec-WebSocket-Version: 13
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Sec-WebSocket-Key: QPbmjcYVUwe8N28j5JseRw==
+Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits]
+2021-03-19 18:33:19 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8","ext":"Chrome","extver":"2.1.0"}
+2021-03-19 18:33:19 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"info","plugins":{"less":{"disable":false,"version":"1.0"}},"url":"http://localhost:8024/usr/article/list?searchKeyword=2"}
+2021-03-19 18:33:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:33:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:33:37 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2021-03-19 18:33:37 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d949221] was not registered for synchronization because synchronization is not active
+2021-03-19 18:33:37 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2021-03-19 18:33:37 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@861105123 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1e4c8c89] will not be managed by Spring
+2021-03-19 18:33:37 [DEBUG] c.s.u.dao.ArticleDao.getArticles - ==>  Preparing: SELECT * FROM article WHERE 1 AND (title LIKE CONCAT('%',?,'%') OR `body` LIKE CONCAT('%',?,'%')) ORDER BY id DESC
+2021-03-19 18:33:37 [DEBUG] c.s.u.dao.ArticleDao.getArticles - ==> Parameters: 2(String), 2(String)
+2021-03-19 18:33:37 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT *
+		FROM article
+		WHERE 1
+
+			AND (title LIKE CONCAT('%','2','%') OR `body` LIKE CONCAT('%','2','%'))
+
+		ORDER BY id DESC
+ {executed in 1 msec}
+2021-03-19 18:33:37 [INFO ] jdbc.resultsettable - 
+|---|--------|-----------|------|-----|
+|id |regdate |updatedate |title |body |
+|---|--------|-----------|------|-----|
+|---|--------|-----------|------|-----|
+
+2021-03-19 18:33:37 [DEBUG] c.s.u.dao.ArticleDao.getArticles - <==      Total: 0
+2021-03-19 18:33:37 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d949221]
+2021-03-19 18:33:37 [DEBUG] o.s.b.d.livereload.LiveReloadServer - LiveReload connection closed
+2021-03-19 18:33:37 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload.js?ext=Chrome&extver=2.1.0 HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Accept: */*
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://localhost:8024/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7]
+2021-03-19 18:33:37 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Upgrade: websocket
+Origin: http://localhost:8024
+Sec-WebSocket-Version: 13
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Sec-WebSocket-Key: oIWbUCGy4mNm5PcklBOabw==
+Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits]
+2021-03-19 18:33:37 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8","ext":"Chrome","extver":"2.1.0"}
+2021-03-19 18:33:37 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"info","plugins":{"less":{"disable":false,"version":"1.0"}},"url":"http://localhost:8024/usr/article/list?searchKeyword=2&seachkeywordType=title"}
+2021-03-19 18:33:48 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2021-03-19 18:33:48 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@698f09f4] was not registered for synchronization because synchronization is not active
+2021-03-19 18:33:48 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2021-03-19 18:33:48 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1732836021 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1e4c8c89] will not be managed by Spring
+2021-03-19 18:33:48 [DEBUG] c.s.u.dao.ArticleDao.getArticles - ==>  Preparing: SELECT * FROM article WHERE 1 AND (title LIKE CONCAT('%',?,'%') OR `body` LIKE CONCAT('%',?,'%')) ORDER BY id DESC
+2021-03-19 18:33:48 [DEBUG] c.s.u.dao.ArticleDao.getArticles - ==> Parameters: 2(String), 2(String)
+2021-03-19 18:33:48 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT *
+		FROM article
+		WHERE 1
+
+			AND (title LIKE CONCAT('%','2','%') OR `body` LIKE CONCAT('%','2','%'))
+
+		ORDER BY id DESC
+ {executed in 1 msec}
+2021-03-19 18:33:48 [INFO ] jdbc.resultsettable - 
+|---|--------|-----------|------|-----|
+|id |regdate |updatedate |title |body |
+|---|--------|-----------|------|-----|
+|---|--------|-----------|------|-----|
+
+2021-03-19 18:33:48 [DEBUG] c.s.u.dao.ArticleDao.getArticles - <==      Total: 0
+2021-03-19 18:33:48 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@698f09f4]
+2021-03-19 18:33:48 [DEBUG] o.s.b.d.livereload.LiveReloadServer - LiveReload connection closed
+2021-03-19 18:33:48 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload.js?ext=Chrome&extver=2.1.0 HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Accept: */*
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://localhost:8024/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7]
+2021-03-19 18:33:48 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Upgrade: websocket
+Origin: http://localhost:8024
+Sec-WebSocket-Version: 13
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Sec-WebSocket-Key: 79Irl7xoO2mEfqTN33+BfA==
+Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits]
+2021-03-19 18:33:48 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8","ext":"Chrome","extver":"2.1.0"}
+2021-03-19 18:33:48 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"info","plugins":{"less":{"disable":false,"version":"1.0"}},"url":"http://localhost:8024/usr/article/list?searchKeyword=2&searchkeywordType=title"}
+2021-03-19 18:33:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:33:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:33:59 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2021-03-19 18:33:59 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5213646d] was not registered for synchronization because synchronization is not active
+2021-03-19 18:33:59 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2021-03-19 18:33:59 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1017044276 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1e4c8c89] will not be managed by Spring
+2021-03-19 18:33:59 [DEBUG] c.s.u.dao.ArticleDao.getArticles - ==>  Preparing: SELECT * FROM article WHERE 1 AND title LIKE CONCAT('%',?,'%') ORDER BY id DESC
+2021-03-19 18:33:59 [DEBUG] c.s.u.dao.ArticleDao.getArticles - ==> Parameters: 2(String)
+2021-03-19 18:33:59 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT *
+		FROM article
+		WHERE 1
+
+			AND title LIKE CONCAT('%','2','%')
+
+		ORDER BY id DESC
+ {executed in 6 msec}
+2021-03-19 18:33:59 [INFO ] jdbc.resultsettable - 
+|---|--------|-----------|------|-----|
+|id |regdate |updatedate |title |body |
+|---|--------|-----------|------|-----|
+|---|--------|-----------|------|-----|
+
+2021-03-19 18:33:59 [DEBUG] c.s.u.dao.ArticleDao.getArticles - <==      Total: 0
+2021-03-19 18:33:59 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5213646d]
+2021-03-19 18:33:59 [DEBUG] o.s.b.d.livereload.LiveReloadServer - LiveReload connection closed
+2021-03-19 18:33:59 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload.js?ext=Chrome&extver=2.1.0 HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Accept: */*
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://localhost:8024/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7]
+2021-03-19 18:33:59 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Upgrade: websocket
+Origin: http://localhost:8024
+Sec-WebSocket-Version: 13
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Sec-WebSocket-Key: rd7a446K96Szs2u8TQf9sw==
+Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits]
+2021-03-19 18:33:59 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8","ext":"Chrome","extver":"2.1.0"}
+2021-03-19 18:33:59 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"info","plugins":{"less":{"disable":false,"version":"1.0"}},"url":"http://localhost:8024/usr/article/list?searchKeyword=2&searchKeywordType=title"}
+2021-03-19 18:34:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:34:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:34:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:34:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:35:21 [DEBUG] org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2021-03-19 18:35:21 [DEBUG] org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77298f03] was not registered for synchronization because synchronization is not active
+2021-03-19 18:35:21 [DEBUG] o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2021-03-19 18:35:21 [DEBUG] o.m.s.t.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@2045673366 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1e4c8c89] will not be managed by Spring
+2021-03-19 18:35:21 [DEBUG] c.s.u.dao.ArticleDao.getArticles - ==>  Preparing: SELECT * FROM article WHERE 1 AND (title LIKE CONCAT('%',?,'%') OR `body` LIKE CONCAT('%',?,'%')) ORDER BY id DESC
+2021-03-19 18:35:21 [DEBUG] c.s.u.dao.ArticleDao.getArticles - ==> Parameters: null, null
+2021-03-19 18:35:21 [DEBUG] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+11. SELECT *
+		FROM article
+		WHERE 1
+
+			AND (title LIKE CONCAT('%',NULL,'%') OR `body` LIKE CONCAT('%',NULL,'%'))
+
+		ORDER BY id DESC
+ {executed in 1 msec}
+2021-03-19 18:35:21 [INFO ] jdbc.resultsettable - 
+|---|--------|-----------|------|-----|
+|id |regdate |updatedate |title |body |
+|---|--------|-----------|------|-----|
+|---|--------|-----------|------|-----|
+
+2021-03-19 18:35:21 [DEBUG] c.s.u.dao.ArticleDao.getArticles - <==      Total: 0
+2021-03-19 18:35:21 [DEBUG] org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77298f03]
+2021-03-19 18:35:22 [DEBUG] o.s.b.d.livereload.LiveReloadServer - LiveReload connection closed
+2021-03-19 18:35:22 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload.js?ext=Chrome&extver=2.1.0 HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: keep-alive
+sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Accept: */*
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://localhost:8024/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7]
+2021-03-19 18:35:22 [DEBUG] o.s.b.devtools.livereload.Connection - Established livereload connection [GET /livereload HTTP/1.1
+Host: 127.0.0.1:35729
+Connection: Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36
+Upgrade: websocket
+Origin: http://localhost:8024
+Sec-WebSocket-Version: 13
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Sec-WebSocket-Key: w+YvqeCdbh4C6Vcq+sjadQ==
+Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits]
+2021-03-19 18:35:22 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"hello","protocols":["http://livereload.com/protocols/official-6","http://livereload.com/protocols/official-7"],"ver":"2.0.8","ext":"Chrome","extver":"2.1.0"}
+2021-03-19 18:35:22 [DEBUG] o.s.b.devtools.livereload.Connection - Received LiveReload text frame {"command":"info","plugins":{"less":{"disable":false,"version":"1.0"}},"url":"http://localhost:8024/usr/article/list"}
+2021-03-19 18:35:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:35:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:35:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:35:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:36:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:36:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:36:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:36:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:37:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:37:24 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-03-19 18:37:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-03-19 18:37:54 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Fill pool skipped, pool is at sufficient level.
