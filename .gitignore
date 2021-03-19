@@ -1,3 +1,4 @@
+log/
 LOG_PATH_IS_UNDEFINED/
 
 HELP.md
@@ -6,8 +7,6 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 bin/
-log/
-
 
 ### STS ###
 .apt_generated
