@@ -34,4 +34,11 @@ public class MemberService {
 	public Member getMemberById(int id) {
 		return memberDao.getMemberById(id);
 	}
+	
+	// id 인 회원 수정하기
+	public ResultData modifyMemberInfoById(Map<String, Object> param) {
+		memberDao.modifyMemberInfoById(param);
+		
+		return new ResultData("S-1", "수정되었습니다.");
+	}
 }

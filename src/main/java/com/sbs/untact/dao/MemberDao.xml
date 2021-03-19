@@ -21,4 +21,29 @@
 		FROM `member`
 		WHERE loginId = #{loginId}
 	</select>
+	
+	<update id="modifyMemberInfoById">
+		UPDATE `member`
+		<set>
+			<if test="loginPw != null or name != null or nickname != null or cellphoneNo != null or email != null">
+				updateDate = NOW(),
+			</if>
+			<if test="loginPw != null">
+				loginPw = #{loginPw},
+			</if>
+			<if test="name != null">
+				name = #{name},
+			</if>
+			<if test="nickname != null">
+				nickname = #{nickname},
+			</if>
+			<if test="cellphoneNo != null">
+				cellphoneNo = #{cellphoneNo},
+			</if>
+			<if test="email != null">
+				email = #{email},
+			</if>
+		</set>
+		WHERE id = #{id}
+	</update>
 </mapper>
