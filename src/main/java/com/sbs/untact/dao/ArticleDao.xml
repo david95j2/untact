@@ -7,23 +7,20 @@
 	<select id="getBoard" resultType="Board">
 		SElECT *
 		FROM board
-		WHERE id =
-		#{id}
+		WHERE id = #{id}
 	</select>
 
 	<select id="getArticle" resultType="Article">
 		SElECT *
 		FROM article
-		WHERE id
-		= #{id}
+		WHERE id = #{id}
 	</select>
 
 	<select id="getForPrintArticle" resultType="Article">
 		SELECT a.*,
 		IFNULL(m.nickname, "탈퇴한회원") AS extra__writer
 		FROM article AS a
-		LEFT JOIN
-		`member` AS m
+		LEFT JOIN `member` AS m
 		ON a.memberId = m.id
 		WHERE a.id = #{id}
 	</select>

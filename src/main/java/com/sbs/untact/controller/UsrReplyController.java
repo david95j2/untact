@@ -3,6 +3,7 @@ package com.sbs.untact.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,19 +27,23 @@ public class UsrReplyController {
 	@Autowired
 	private ArticleService articleService;
 	
-	@RequestMapping("/usr/reply/doAddReply")
+	@RequestMapping("/usr/reply/doAdd")
 	@ResponseBody
-	public ResultData doAddReply(@RequestParam Map<String, Object> param, HttpSession session) {
-		int loginedMemberId = Util.getAsInt(session.getAttribute("loginedMemberId"), 0);
+	public ResultData doAddReply(@RequestParam Map<String, Object> param, HttpServletRequest req) {
+		int loginedMemberId = (int) req.getAttribute("loginedMemberId");
 
 		if (param.get("body") == null) {
 			return new ResultData("F-1", "내용을 입력하세요");
 		}
 		
-		if (param.get("articleId") == null) {
-			return new ResultData("F-1", "게시물 번호를 입력해주세요.");
+		if (param.get("relTypeCode") == null) {
+			return new ResultData("F-1", "relyTpeCode를 'article'로 설정해주세요.");
 		}
-
+		
+		if (param.get("relId") == null) {
+			return new ResultData("F-1", "relId를 설정해주세요.");
+		}
+		
 		param.put("memberId", loginedMemberId);
 
 		return replyService.addReply(param);
@@ -70,5 +75,30 @@ public class UsrReplyController {
 		List<Reply> replies = replyService.getForPrintReplies(relTypeCode,relId);
 		
 		return new ResultData("S-1", "성공", "replies",replies);
+	}
+	
+	@RequestMapping("/usr/reply/doDelete")
+	@ResponseBody
+	public ResultData doDelete(Integer id, HttpServletRequest req) {
+		int loginedMemberId = (int) req.getAttribute("loginedMemberId");
+
+		if (id == null) {
+			return new ResultData("F-1", "Id를 입력해주세요.");
+		}
+				
+		Reply reply = replyService.getReply(id);
+
+		if (reply == null) {
+			return new ResultData("F-2", "해당 댓글이 존재하지 않습니다.");
+		}
+		
+		ResultData actorCanModifyRd = replyService.getActorCanDeleteRd(reply, loginedMemberId);
+
+		if (actorCanModifyRd.isFail()) {
+			return actorCanModifyRd;
+		}
+
+		return replyService.deleteReply(id);
+		
 	}
 }

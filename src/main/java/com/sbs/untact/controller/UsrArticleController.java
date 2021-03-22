@@ -3,7 +3,7 @@ package com.sbs.untact.controller;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,6 @@ import com.sbs.untact.dto.Article;
 import com.sbs.untact.dto.Board;
 import com.sbs.untact.dto.ResultData;
 import com.sbs.untact.service.ArticleService;
-import com.sbs.untact.util.Util;
 
 @Controller
 public class UsrArticleController {
@@ -73,8 +72,8 @@ public class UsrArticleController {
 
 	@RequestMapping("/usr/article/doAdd")
 	@ResponseBody
-	public ResultData doAdd(@RequestParam Map<String, Object> param, HttpSession session) {
-		int loginedMemberId = Util.getAsInt(session.getAttribute("loginedMemberId"), 0);
+	public ResultData doAdd(@RequestParam Map<String, Object> param, HttpServletRequest req) {
+		int loginedMemberId = (int) req.getAttribute("loginedMemberId");
 
 		if (param.get("title") == null) {
 			return new ResultData("F-1", "제목을 입력하세요");
@@ -91,23 +90,23 @@ public class UsrArticleController {
 
 	@RequestMapping("/usr/article/doDelete")
 	@ResponseBody
-	public ResultData doDelete(Integer id,HttpSession session) {
-		int loginedMemberId = Util.getAsInt(session.getAttribute("loginedMemberId"), 0);
+	public ResultData doDelete(Integer id,HttpServletRequest req) {
+		int loginedMemberId = (int) req.getAttribute("loginedMemberId");
 
 		if (id == null) {
 			return new ResultData("F-1", "Id를 입력해주세요.");
 		}
 				
 		Article article = articleService.getArticle(id);
-
+		
+		if (article == null) {
+			return new ResultData("F-2", "해당 게시물이 존재하지 않습니다.");
+		}
+		
 		ResultData actorCanModifyRd = articleService.getActorCanDeleteRd(article, loginedMemberId);
 
 		if (actorCanModifyRd.isFail()) {
 			return actorCanModifyRd;
-		}
-		
-		if (article == null) {
-			return new ResultData("F-1", "해당 게시물은 존재하지 않습니다.");
 		}
 
 		return articleService.deleteArticle(id);
@@ -115,8 +114,8 @@ public class UsrArticleController {
 
 	@RequestMapping("/usr/article/doModify")
 	@ResponseBody
-	public ResultData doModify(Integer id, String title, String body, HttpSession session) {
-		int loginedMemberId = Util.getAsInt(session.getAttribute("loginedMemberId"), 0);
+	public ResultData doModify(Integer id, String title, String body, HttpServletRequest req) {
+		int loginedMemberId = (int) req.getAttribute("loginedMemberId");
 
 		if (id == null) {
 			return new ResultData("F-1", "Id를 입력해주세요.");
@@ -131,7 +130,7 @@ public class UsrArticleController {
 		Article article = articleService.getArticle(id);
 
 		if (article == null) {
-			return new ResultData("F-1", "해당 게시물은 존재하지 않습니다.");
+			return new ResultData("F-2", "해당 게시물이 존재하지 않습니다.");
 		}
 
 		ResultData actorCanModifyRd = articleService.getActorCanModifyRd(article, loginedMemberId);

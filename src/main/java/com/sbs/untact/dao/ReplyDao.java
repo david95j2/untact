@@ -11,8 +11,12 @@ import com.sbs.untact.dto.Reply;
 @Mapper
 public interface ReplyDao {
 
-	public void addReply(Map<String, Object> param);
+	void addReply(Map<String, Object> param);
 
-	public List<Reply> getForPrintReplies(@Param(value="relTypeCode") String relTypeCode,
+	List<Reply> getForPrintReplies(@Param(value="relTypeCode") String relTypeCode,
 			@Param(value="relId") Integer relId);
+
+	Reply getReply(@Param(value="id") Integer id);
+
+	void deleteReply(@Param(value="id") Integer id);
 }

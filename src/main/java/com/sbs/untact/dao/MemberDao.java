@@ -10,12 +10,12 @@ import com.sbs.untact.dto.Member;
 @Mapper
 public interface MemberDao {
 
-	public void addMember(Map<String, Object> param);
+	void addMember(Map<String, Object> param);
 	
-	public Member getMemberById(@Param(value="id") int id);	
+	Member getMemberById(@Param(value="id") int id);	
 	
-	public Member getMemberByLoginId(@Param(value="loginId") String loginId);
+	Member getMemberByLoginId(@Param(value="loginId") String loginId);
 
-	public void modifyMemberInfoById(Map<String, Object> param);
+	void modifyMemberInfoById(Map<String, Object> param);
 
 }

@@ -171,5 +171,3 @@ SELECT COUNT(*) FROM article;
 SELECT * FROM article;
 
 SELECT * FROM reply;
-
-DESC reply
