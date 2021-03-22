@@ -35,4 +35,15 @@
 		DELETE FROM reply
 		WHERE id = #{id}
 	</delete>
+	
+	<update id="modifyReply">
+		UPDATE reply
+		<set>
+			<if test="body != null">
+				updateDate = NOW(),
+				`body` = #{body}
+			</if>
+		</set>
+		WHERE id = #{id}
+	</update>
 </mapper>
