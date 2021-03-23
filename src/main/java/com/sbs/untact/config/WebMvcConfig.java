@@ -37,7 +37,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		registry.addInterceptor(beforeActionInterceptor).addPathPatterns("/**").excludePathPatterns("/resource/**");
 
 		// admin 필요
-		registry.addInterceptor(needLoginInterceptor)
+		registry.addInterceptor(needAdminInterceptor)
 			.addPathPatterns("/adm/**")
 			.excludePathPatterns("/adm/member/login")
 			.excludePathPatterns("/adm/member/doLogin");				

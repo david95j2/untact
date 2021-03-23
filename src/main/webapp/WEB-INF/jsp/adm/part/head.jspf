@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>관리자 페이지</title>
+
+<!-- TailWind -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.4/tailwind.min.css" />
+
+<!-- common.css 불러오기 -->
+<link rel="stylesheet" href="/resource/common.css" />
+<link rel="stylesheet" href="/resource/adm/common.css" />
+</head>
+<body class="bg-gray-200">
+
