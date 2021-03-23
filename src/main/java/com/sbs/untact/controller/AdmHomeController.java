@@ -10,6 +10,6 @@ public class AdmHomeController {
 	@RequestMapping("adm/home/main")
 	@ResponseBody
 	public String showMain() {
-		return "1234";
+		return "관리자메인";
 	}
 }

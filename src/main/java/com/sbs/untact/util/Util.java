@@ -7,15 +7,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Util {
-	
-	//현재 날짜 구하기
+
+	// 현재 날짜 구하기
 	public static String getNowDateStr() {
 		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date time = new Date();
 		return format1.format(time);
 	}
-	
-	//맵 인자 자동생성 및 오류 검출 메세지
+
+	// 맵 인자 자동생성 및 오류 검출 메세지
 	public static Map<String, Object> mapOf(Object... args) {
 		if (args.length % 2 != 0) {
 			throw new IllegalArgumentException("인자를 짝수개 입력해주세요.");
@@ -61,5 +61,27 @@ public class Util {
 			return Integer.parseInt((String) object);
 		}
 		return defaultValue;
+	}
+
+	public static String msgAndBack(String msg) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("<script>");
+		sb.append("alert('" + msg + "');");
+		sb.append("history.back();");
+		sb.append("</script>");
+
+		return sb.toString();
+	}
+
+	public static String msgAndReplace(String msg, String url) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("<script>");
+		sb.append("alert('" + msg + "');");
+		sb.append("location.replace('"+ url +"'");
+		sb.append("</script>");
+
+		return sb.toString();
 	}
 }
