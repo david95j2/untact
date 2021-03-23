@@ -57,6 +57,22 @@ public class UsrMemberController {
 		return memberService.join(param);
 	}
 	
+	@RequestMapping("/usr/member/memberByAuthKey")
+	@ResponseBody
+	public ResultData showAuthKey(String authKey) {
+		if (authKey == null) {
+			return new ResultData("F-1", "authKey를 입력해주세요.");
+		}
+		
+		Member memberExisted = memberService.getMemberByAuthKey(authKey);
+		
+		if (memberExisted == null) {
+			return new ResultData("F-2", "유효하지 않은 authKey 입니다.");
+		}
+		
+		return new ResultData("S-1","유효한 회원입니다.","member",memberExisted);
+	}
+	
 	@RequestMapping("/usr/member/authKey")
 	@ResponseBody
 	public ResultData showAuthKey(String loginId, String loginPw) {
@@ -67,10 +83,10 @@ public class UsrMemberController {
 		Member memberExisted = memberService.getMemberByLoginId(loginId);
 
 		if (memberExisted == null) {
-			return new ResultData("F-2", "존재하지 않는 아이디입니다.");
+			return new ResultData("F-2", "존재하지 않는 아이디입니다.","loginId",loginId);
 		}
 
-		if (memberExisted.getLoginPw() == null) {
+		if (loginPw == null) {
 			return new ResultData("F-1", "비밀번호를 입력해주세요.");
 		}
 
@@ -78,7 +94,8 @@ public class UsrMemberController {
 			return new ResultData("F-3", "비밀빈호가 일치하지 않습니다.");
 		}
 
-		return new ResultData("S-1", String.format("%s님 환영합니다.", memberExisted.getNickname()), "authKey",memberExisted.getAuthKey());
+		return new ResultData("S-1", String.format("%s님 환영합니다.", memberExisted.getNickname()), "authKey",
+				memberExisted.getAuthKey(),"id",memberExisted.getId(),"name",memberExisted.getName(),"nickname",memberExisted.getNickname());
 	}
 	
 	@RequestMapping("/usr/member/doLogin")
