@@ -71,4 +71,12 @@ public class AdmMemberController {
 		
 		return memberService.modifyMemberInfoById(param);
 	}
+	
+	@RequestMapping("/adm/member/doLogout")
+	@ResponseBody
+	public String doLogout(HttpSession session) {
+		session.removeAttribute("loginedMemberId");
+
+		return Util.msgAndReplace("로그아웃 되었습니다.", "../member/login");
+	}
 }
