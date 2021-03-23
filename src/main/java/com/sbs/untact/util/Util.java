@@ -79,7 +79,7 @@ public class Util {
 
 		sb.append("<script>");
 		sb.append("alert('" + msg + "');");
-		sb.append("location.replace('"+ url +"'");
+		sb.append("location.replace('"+ url +"');");
 		sb.append("</script>");
 
 		return sb.toString();
