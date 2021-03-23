@@ -46,4 +46,9 @@ public class MemberService {
 	public Boolean isAdmin(int actorId) {
 		return actorId == 1;
 	}
+
+	// method overload / actor 의 id 가 1인 회원 찾기
+	public boolean isAdmin(Member actor) {
+		return isAdmin(actor.getId());
+	}
 }
