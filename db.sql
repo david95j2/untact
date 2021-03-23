@@ -166,8 +166,23 @@ SELECT NOW(), NOW(), FLOOR(RAND() * 2) + 1, FLOOR(RAND() * 2) + 1,
 from article;
 */
 
-SELECT COUNT(*) FROM article;
+# authKey 컬럼 추가
+ALTER TABLE `member` ADD COLUMN authKey CHAR(80) NOT NULL AFTER loginPw;
+
+# authKey 컬럼에 유니크 인덱스 추가
+ALTER TABLE `untact`.`member` ADD UNIQUE INDEX (`authKey`);
+
+# SET authKey = CONCAT("authKey__",UUID(),"__",RAND())
+
+#기존 회원의 authKey 채우기
+UPDATE `member`
+SET authKey = 'authKey__1'
+WHERE id = 1;
+
+UPDATE `member`
+SET authKey = 'authKey__2'
+WHERE id = 2;
 
 SELECT * FROM article;
 
-SELECT * FROM reply;
+SELECT * FROM `member`;

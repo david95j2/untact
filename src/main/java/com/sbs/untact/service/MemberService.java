@@ -51,4 +51,9 @@ public class MemberService {
 	public boolean isAdmin(Member actor) {
 		return isAdmin(actor.getId());
 	}
+	
+	// authKey 얻기
+	public Member getMemberByAuthKey(String authKey) {
+		return memberDao.getMemberByAuthKey(authKey);
+	}
 }
