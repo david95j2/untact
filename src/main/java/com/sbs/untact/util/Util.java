@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -88,12 +89,12 @@ public class Util {
 
 		sb.append("<script>");
 		sb.append("alert('" + msg + "');");
-		sb.append("location.replace('"+ url +"');");
+		sb.append("location.replace('" + url + "');");
 		sb.append("</script>");
 
 		return sb.toString();
 	}
-	
+
 	// 객체를 json 형태로 변환
 	public static String toJsonStr(Map<String, Object> param) {
 		ObjectMapper mapper = new ObjectMapper();
@@ -105,7 +106,7 @@ public class Util {
 
 		return "";
 	}
-	
+
 	// request 에서 param을 뽑아 map으로 변환
 	public static Map<String, Object> getParamMap(HttpServletRequest request) {
 		Map<String, Object> param = new HashMap<>();
@@ -121,13 +122,55 @@ public class Util {
 
 		return param;
 	}
-	
-	
+
+	// url 압축
 	public static String getUrlEncoded(String str) {
 		try {
 			return URLEncoder.encode(str, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			return str;
 		}
+	}
+
+	public static <T> T ifNull(T data, T defalutValue) {
+		return data != null ? data : defalutValue;
+	}
+
+	public static <T> T reqAttr(HttpServletRequest req, String attrName, T defalutValue) {
+		return (T) ifNull(req.getAttribute(attrName), defalutValue);
+	}
+
+	public static boolean isEmpty(Object data) {
+		if (data == null) {
+			return true;
+		}
+
+		if (data instanceof String) {
+			String strData = (String) data;
+
+			return strData.trim().length() == 0;
+		} else if (data instanceof Integer) {
+			Integer integerData = (Integer) data;
+
+			return integerData != 0;
+		} else if (data instanceof List) {
+			List listData = (List) data;
+
+			return listData.isEmpty();
+		} else if (data instanceof Map) {
+			Map mapData = (Map) data;
+
+			return mapData.isEmpty();
+		}
+
+		return true;
+	}
+
+	public static <T> T ifEmpty(T data, T defaultValue) {
+		if ( isEmpty(data) ) {
+			return defaultValue;
+		}
+		
+		return data;
 	}
 }
