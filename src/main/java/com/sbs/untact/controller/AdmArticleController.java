@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartRequest;
 
 import com.sbs.untact.dto.Article;
 import com.sbs.untact.dto.Board;
@@ -78,7 +80,13 @@ public class AdmArticleController extends BaseController{
 
 	@RequestMapping("/adm/article/doAdd")
 	@ResponseBody
-	public ResultData doAdd(@RequestParam Map<String, Object> param, HttpServletRequest req) {
+	public ResultData doAdd(@RequestParam Map<String, Object> param, HttpServletRequest req, MultipartRequest multipartRequest) {
+		Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
+		
+		if (true) {
+			return new ResultData("S-1", "성공","fileMap.keySet", fileMap.keySet());
+		}
+		
 		int loginedMemberId = (int) req.getAttribute("loginedMemberId");
 
 		if (param.get("title") == null) {
